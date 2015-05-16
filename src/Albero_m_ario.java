@@ -37,14 +37,23 @@ public class Albero_m_ario {
 	// Methods
 	
 	/**
-	 * ...
+	 * Metodo per inserire la radice nel albero
 	 * 
-	 * @param chiave
+	 * @param chiave Valore da attribuire alla radice
 	 */
 	public void insRacide(int chiave) {
 		radice = new Nodo_m_ario(chiave, grado);
 	}
-	
+
+	/**
+	 * ... 
+	 * 
+	 * @return Restituisce la radice dell'albero
+	 */
+	public Nodo_m_ario getRadice() {
+		return radice;
+	}
+
 	/**
 	 * ...
 	 * 
@@ -58,16 +67,7 @@ public class Albero_m_ario {
 		radice.addFiglio(oldRadice, posizione);
 		numNodi += 1;
 	}
-	
-	/**
-	 * ... 
-	 * 
-	 * @return Restituisce la radice dell'albero
-	 */
-	public Nodo_m_ario getRadice() {
-		return radice;
-	}
-	
+		
 	/**
 	 * Restituisci il numero dei nodi totali presente nell'albero
 	 * 

@@ -1,5 +1,5 @@
 /**
- * TODO ...
+ * Questa classe rappresenta un nodo di chiave intera di grado m.
  * 
  * @author Simone Cappabianca - Mat: 5423306
  *
@@ -9,21 +9,22 @@ public class Nodo_m_ario {
 	// Fields
 	
 	/**
-	 * TODO ...
+	 * Chiave del nodo
 	 */
 	private int chiave;
 	
 	/**
-	 * TODO ...
+	 * Figli del nodo
 	 */
 	private Nodo_m_ario[] figli;
 	
 	// Constructors
 	
 	/**
-	 * TODO ...
+	 * Crea un nodo di chiave val e di grado grado
 	 * 
-	 * @param val 
+	 * @param val Valore da attribuire alla chiave
+	 * @param grado Grado del nodo 
 	 */
 	public Nodo_m_ario(int val, int grado) {
 		chiave = val;
@@ -33,40 +34,53 @@ public class Nodo_m_ario {
 	// Methods
 	
 	/**
-	 * TODO ...
+	 * Metodo per aggiungere un figlio al nodo in una determinata posizione
 	 * 
-	 * @param figlio
+	 * @param figlio Nodo da aggiungere come figlio
+	 * @param posizione Posizione in cui aggiungere il figlio
 	 */
 	public void addFiglio(Nodo_m_ario figlio, int posizione) {
 		figli[posizione] = figlio;
 	}
 	
 	/**
-	 * TODO ...
+	 * Metodo che restituisce la chiave del nodo
 	 * 
-	 * @return
+	 * @return Restituisce la chiave del nodo
 	 */
 	public int getChiave() {
 		return chiave;
 	}
 	
 	/**
-	 * TODO ...
+	 * Metodo per settare la chiave di nodo
 	 * 
-	 * @param c
+	 * @param val Valore da attribuire alla chiave del nodo
 	 */
-	public void setChiave(int c) {
-		chiave = c;
+	public void setChiave(int val) {
+		chiave = val;
 	}
 	
 	/**
+	 * Metodo per recuperare i figli del nodo
 	 * 
-	 * @return
+	 * @return Restituisce i figli del nodo
+	 */
+	public Nodo_m_ario[] getFigli() {
+		return figli;
+	}
+	
+	/**
+	 * Metodo per recuperare il numero di figlio del nodo
+	 * 
+	 * @return Restituisce il numero di figli del nodo
 	 */
 	public int getNunFigli() {
 		int numFigli = 0;
 		for (Nodo_m_ario figlio : figli) {
-			// TODO ...
+			if (figlio != null) {
+				numFigli += 1;
+			}
 		}
 		return numFigli;
 	}

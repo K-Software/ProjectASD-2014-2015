@@ -1,5 +1,5 @@
 /**
- * Albero di chiave intero
+ * Albero di chiavi chiavi intere e di arietá m
  * 
  * @author Simone Cappabianca - Mat: 5423306
  *
@@ -21,12 +21,12 @@ public class Albero_m_ario {
 	/**
 	 * Numero dei nodi presenti nell'albero
 	 */
-	private int numNodi;
+	private int numNodi = 0;
 	
 	// Constructors
 	
 	/**
-	 * ...
+	 * Crea un albero di grado m
 	 * 
 	 * @param m Grado dell'albero. 
 	 */
@@ -43,10 +43,11 @@ public class Albero_m_ario {
 	 */
 	public void insRacide(int chiave) {
 		radice = new Nodo_m_ario(chiave, grado);
+		numNodi += 1;
 	}
 
 	/**
-	 * ... 
+	 * Metodo che restituisce il Nodo_m_ario della radice dell'albero 
 	 * 
 	 * @return Restituisce la radice dell'albero
 	 */

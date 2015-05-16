@@ -5,6 +5,8 @@ public class HelloWord {
 		// TODO Auto-generated method stub
 		System.out.println("Hello Word and I love Java!!!!");
 		
+		// Test of Nodo_m_ario
+		System.out.println("Test Nodo_m_ario");
 		Nodo_m_ario nodo = new Nodo_m_ario(1, 7);
 		System.out.println("Chiave: " + nodo.getChiave());
 		System.out.println("Num figli:" + nodo.getNunFigli());
@@ -24,5 +26,14 @@ public class HelloWord {
 				pos += 1;
 			}
 		}
+		
+		// Test of Albero_m_ario
+		System.out.println();
+		System.out.println("Test Albero_m_ario");
+		Albero_m_ario albero = new Albero_m_ario(2);
+		System.out.println("Numero di nodi: " + albero.getNumNodi());
+		albero.insRacide(1);
+		System.out.println("Numero di nodi: " + albero.getNumNodi());
+		System.out.println("Radice: " + albero.getRadice().getChiave());
 	}
 }

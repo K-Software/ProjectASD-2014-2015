@@ -52,7 +52,11 @@ public class Albero_m_ario {
 	 * @param posizione Posizione da attribuire alla vecchia chiave
 	 */
 	public void insNuovaRadice(int chiave, int posizione) {
-		
+		// TODO ...
+		Nodo_m_ario oldRadice = radice;
+		radice = new Nodo_m_ario(chiave, grado);
+		radice.addFiglio(oldRadice, posizione);
+		numNodi += 1;
 	}
 	
 	/**
@@ -62,5 +66,14 @@ public class Albero_m_ario {
 	 */
 	public Nodo_m_ario getRadice() {
 		return radice;
+	}
+	
+	/**
+	 * Restituisci il numero dei nodi totali presente nell'albero
+	 * 
+	 * @return Numero totale dei nodi
+	 */
+	public int getNumNodi() {
+		return numNodi;
 	}
 }

@@ -47,5 +47,25 @@ public class HelloWord {
 		System.out.println("");
 		System.out.print("Visita Simmetrica: ");
 		albero.visitaSimmetrica();
+		System.out.println("");
+		System.out.println("Ricerca nodo per chiave ");
+		nodo = albero.findNodo(1);
+		if (nodo != null) {
+			System.out.println("Chiave: " + nodo.getChiave());
+			System.out.println("Figli: " + nodo.getNunFigli());
+			dash = "";
+			if (nodo.getNunFigli() > 0) {
+				int pos = 0;
+				for(Nodo_m_ario temp : nodo.getFigli()) {
+					if (temp != null) {
+						System.out.print(dash + pos + ":" + temp.getChiave());
+						dash = " - ";
+					}
+					pos += 1;
+				}
+			}
+		} else {
+			System.out.println("Nodo non presente");
+		}
 	}
 }

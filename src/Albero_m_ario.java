@@ -37,7 +37,7 @@ public class Albero_m_ario {
 	// Methods
 	
 	/**
-	 * Metodo per effettuare la visita anticipata dell'albero  
+	 * Metodo per effettuare la visita anticipata dell'albero.  
 	 * 
 	 * @param radice Radice dell'albero
 	 */
@@ -51,6 +51,7 @@ public class Albero_m_ario {
 	}
 	
 	/**
+	 * Metodo per effettuare la visita posticipata dell'albero. 
 	 * 
 	 * @param radice Radice dell'albero
 	 */
@@ -64,6 +65,7 @@ public class Albero_m_ario {
 	}
 	
 	/**
+	 * Metodo per effettuare la visita simmetrica dell'albero.
 	 * 
 	 * @param radice Radice dell'albero
 	 */
@@ -77,6 +79,26 @@ public class Albero_m_ario {
 				visitaSimmetrica(radice.getFigli()[i]);
 			}
 		}
+	}
+	
+	/**
+	 * Ricerca un nodo per chiave tramite una visita anticipata.
+	 * 
+	 * @param radice Radice dell'albero su cui effettuare la ricerca
+	 * @param chiave Chiave del nodo da ricercare
+	 * @return Restituisce il nodo contenente la chiave
+	 */
+	private Nodo_m_ario findNodo(Nodo_m_ario radice, int chiave) {
+		if (radice != null) {
+			if (radice.getChiave() == chiave) {
+				return radice;
+			} else {
+				for (Nodo_m_ario figlio: radice.getFigli()) {
+					return findNodo(figlio, chiave);
+				}
+			}
+		}
+		return null;
 	}
 	
 	/**
@@ -118,24 +140,6 @@ public class Albero_m_ario {
 	}
 	
 	/**
-	 * Ricerca un nodo per chiave tramite una visita anticipata.
-	 * 
-	 * @param radice Radice dell'albero su cui effettuare la ricerca
-	 * @param chiave Chiave del nodo da ricercare
-	 * @return Restituisce il nodo contenente la chiave
-	 */
-	public Nodo_m_ario findNodo(Nodo_m_ario radice, int chiave) {
-		if (radice.getChiave() == chiave) {
-			return radice;
-		} else {
-			for (Nodo_m_ario figlio: radice.getFigli()) {
-				return findNodo(figlio, chiave);
-			}
-		}
-		return null;
-	}
-	
-	/**
 	 * Metedo per aggiungere ad un nodo padre un nuovo figlio.
 	 * 
 	 * @param chiavePadre Chiave del padre a cui aggiungere il figlio
@@ -154,6 +158,16 @@ public class Albero_m_ario {
 		return result;
 	}
 
+	/**
+	 * Metodo per recuperare il primo nodo con la chiave indicata come parametro.
+	 * 
+	 * @param chiave Chiave da ricercare
+	 * @return Restituisce il nodo che ha la chi
+	 */
+	public Nodo_m_ario findNodo(int chiave) {
+		return findNodo(radice, chiave);
+	}
+	
 	/**
 	 * Metodo per effettuare la visita anticipata dell'albero.
 	 */

@@ -36,5 +36,8 @@ public class HelloWord {
 		System.out.println("Numero di nodi: " + albero.getNumNodi());
 		System.out.println("Radice: " + albero.getRadice().getChiave());
 		
+		int grado = 7;
+		System.out.println("Test: 0 - " + grado/2 );
+		System.out.println("Test : " + (grado/2 + 1) + " - " + (grado - 1));
 	}
 }

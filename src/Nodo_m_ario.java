@@ -9,9 +9,14 @@ public class Nodo_m_ario {
 	// Fields
 	
 	/**
-	 * Chiave del nodo
+	 * Chiave del nodo.
 	 */
 	private int chiave;
+	
+	/**
+	 * Grado del nodo.
+	 */
+	private int grado;
 	
 	/**
 	 * Figli del nodo
@@ -26,22 +31,13 @@ public class Nodo_m_ario {
 	 * @param val Valore da attribuire alla chiave
 	 * @param grado Grado del nodo 
 	 */
-	public Nodo_m_ario(int val, int grado) {
+	public Nodo_m_ario(int val, int m) {
 		chiave = val;
+		grado = m;
 		figli = new Nodo_m_ario[grado];
 	}
 	
 	// Methods
-	
-	/**
-	 * Metodo per aggiungere un figlio al nodo in una determinata posizione
-	 * 
-	 * @param figlio Nodo da aggiungere come figlio
-	 * @param posizione Posizione in cui aggiungere il figlio
-	 */
-	public void addFiglio(Nodo_m_ario figlio, int posizione) {
-		figli[posizione] = figlio;
-	}
 	
 	/**
 	 * Metodo che restituisce la chiave del nodo
@@ -59,6 +55,25 @@ public class Nodo_m_ario {
 	 */
 	public void setChiave(int val) {
 		chiave = val;
+	}
+	
+	/**
+	 * Metodo che restituisce il grado del nodo.
+	 * 
+	 * @return Restituisce il grado del nodo
+	 */
+	public int getGrado() {
+		return grado;
+	}
+	
+	/**
+	 * Metodo per aggiungere un figlio al nodo in una determinata posizione
+	 * 
+	 * @param figlio Nodo da aggiungere come figlio
+	 * @param posizione Posizione in cui aggiungere il figlio
+	 */
+	public void addFiglio(Nodo_m_ario figlio, int posizione) {
+		figli[posizione] = figlio;
 	}
 	
 	/**

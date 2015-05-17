@@ -37,14 +37,14 @@ public class Albero_m_ario {
 	// Methods
 	
 	/**
-	 * Metodo per effettuare una visita anticipata del nodo
+	 * Metodo per effettuare la visita anticipata dell'albero  
 	 * 
-	 * @param padre
+	 * @param radice Radice dell'albero
 	 */
-	private void visitaAnticipata(Nodo_m_ario padre) {
-		if (padre != null) {
-			System.out.print(padre.getChiave() + " ");
-			for (Nodo_m_ario figlio: padre.getFigli()) {
+	private void visitaAnticipata(Nodo_m_ario radice) {
+		if (radice != null) {
+			System.out.print(radice.getChiave() + " ");
+			for (Nodo_m_ario figlio: radice.getFigli()) {
 				visitaAnticipata(figlio);
 			}
 		}
@@ -52,23 +52,31 @@ public class Albero_m_ario {
 	
 	/**
 	 * 
-	 * @param padre
+	 * @param radice Radice dell'albero
 	 */
-	private void visitaPosticipata(Nodo_m_ario padre) {
-		if (padre != null) {
-			for (Nodo_m_ario figlio: padre.getFigli()) {
+	private void visitaPosticipata(Nodo_m_ario radice) {
+		if (radice != null) {
+			for (Nodo_m_ario figlio: radice.getFigli()) {
 				visitaPosticipata(figlio);
 			}
-			System.out.print(padre.getChiave());
+			System.out.print(radice.getChiave());
 		}
 	}
 	
 	/**
 	 * 
-	 * @param padre
+	 * @param radice Radice dell'albero
 	 */
-	private void visitaSimmetrica(Nodo_m_ario padre) {
-		// TODO ...
+	private void visitaSimmetrica(Nodo_m_ario radice) {
+		if (radice != null) {
+			for (int i = 0; i <= padre.getGrado()/2; i++) {
+				visitaSimmetrica(radice.getFigli()[i]);
+			}
+			System.out.print(radice.getChiave());
+			for (int i = (radice.getGrado()/2)+1; i < radice.getGrado(); i++) {
+				visitaSimmetrica(radice.getFigli()[i]);
+			}
+		}
 	}
 	
 	/**

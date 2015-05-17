@@ -1,5 +1,5 @@
 /**
- * Albero di chiavi chiavi intere e di arietá m
+ * Albero di chiavi intere e di arietá m
  * 
  * @author Simone Cappabianca - Mat: 5423306
  *

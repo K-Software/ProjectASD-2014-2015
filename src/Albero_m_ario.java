@@ -69,7 +69,7 @@ public class Albero_m_ario {
 	 */
 	private void visitaSimmetrica(Nodo_m_ario radice) {
 		if (radice != null) {
-			for (int i = 0; i <= padre.getGrado()/2; i++) {
+			for (int i = 0; i <= radice.getGrado()/2; i++) {
 				visitaSimmetrica(radice.getFigli()[i]);
 			}
 			System.out.print(radice.getChiave());

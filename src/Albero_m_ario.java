@@ -150,6 +150,8 @@ public class Albero_m_ario {
 	 * @param chiavePadre Chiave del padre a cui aggiungere il figlio
 	 * @param chiaveFiglio Chiave del nuovo figlio
 	 * @param posizione Posizione del nuovo filgio
+	 * @return Restituisce true se inserimento ha avuto esito positivo, false
+	 * altrimenti
 	 */
 	public boolean addNodo(int chiavePadre, int chiaveFiglio, int posizione) {
 		boolean result = false;

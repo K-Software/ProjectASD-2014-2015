@@ -81,8 +81,9 @@ public class Albero_m_ario {
 	/**
 	 * Ricerca un nodo per chiave tramite una visita anticipata
 	 * 
+	 * @param radice Radice dell'albero su cui effettuare la ricerca
 	 * @param chiave Chiave del nodo da ricercare
-	 * @return  Restituisce il nodo contenente la chiave
+	 * @return Restituisce il nodo contenente la chiave
 	 */
 	public Nodo_m_ario findNodo(Nodo_m_ario radice, int chiave) {
 		if (radice.getChiave() == chiave) {

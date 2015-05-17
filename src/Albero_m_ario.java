@@ -93,9 +93,14 @@ public class Albero_m_ario {
 			if (radice.getChiave() == chiave) {
 				return radice;
 			} else {
+				Nodo_m_ario nodo = null;
 				for (Nodo_m_ario figlio: radice.getFigli()) {
-					return findNodo(figlio, chiave);
+					nodo = findNodo(figlio, chiave);
+					if (nodo != null) {
+						return nodo;
+					}
 				}
+				return nodo;
 			}
 		}
 		return null;
@@ -107,7 +112,7 @@ public class Albero_m_ario {
 	 * @param chiave Valore da attribuire alla radice
 	 */
 	public void insRacide(int chiave) {
-		radice = new Nodo_m_ario(chiave, grado);
+		radice = new Nodo_m_ario(null, chiave, grado);
 		numNodi += 1;
 	}
 
@@ -150,7 +155,7 @@ public class Albero_m_ario {
 		boolean result = false;
 		Nodo_m_ario padre = findNodo(radice, chiavePadre);
 		if (padre != null) {
-			Nodo_m_ario	newFiglio = new Nodo_m_ario(chiaveFiglio, grado);
+			Nodo_m_ario	newFiglio = new Nodo_m_ario(padre, chiaveFiglio, grado);
 			padre.addFiglio(newFiglio, posizione);
 			numNodi += 1;
 			result = true;

@@ -19,6 +19,11 @@ public class Nodo_m_ario {
 	private int grado;
 	
 	/**
+	 * Padre del nodo
+	 */
+	private Nodo_m_ario padre;
+	
+	/**
 	 * Figli del nodo
 	 */
 	private Nodo_m_ario[] figli;
@@ -26,14 +31,16 @@ public class Nodo_m_ario {
 	// Constructors
 	
 	/**
-	 * Crea un nodo di chiave val e di grado grado
+	 * Crea un nodo figlio di padre di chiave val e di grado grado.
 	 * 
+	 * @param padre Nodo padre
 	 * @param val Valore da attribuire alla chiave
 	 * @param m Grado del nodo 
 	 */
-	public Nodo_m_ario(int val, int m) {
+	public Nodo_m_ario(Nodo_m_ario padre, int val, int m) {
 		chiave = val;
 		grado = m;
+		this.padre = padre;
 		figli = new Nodo_m_ario[grado];
 	}
 	
@@ -74,6 +81,15 @@ public class Nodo_m_ario {
 	 */
 	public void addFiglio(Nodo_m_ario figlio, int posizione) {
 		figli[posizione] = figlio;
+	}
+	
+	/**
+	 * Metodo per recuperare il padre del nodo.
+	 * 
+	 * @return Restituisce il padre del nodo
+	 */
+	public Nodo_m_ario getPadre() {
+		return padre;
 	}
 	
 	/**

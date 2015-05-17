@@ -35,9 +35,17 @@ public class HelloWord {
 		albero.insRacide(1);
 		System.out.println("Numero di nodi: " + albero.getNumNodi());
 		System.out.println("Radice: " + albero.getRadice().getChiave());
-		
-		int grado = 7;
-		System.out.println("Test: 0 - " + grado/2 );
-		System.out.println("Test : " + (grado/2 + 1) + " - " + (grado - 1));
+		System.out.println("Ins nodo: " + albero.addNodo(1, 2, 0));
+		System.out.println("Numero di nodi: " + albero.getNumNodi());
+		System.out.println("Ins nodo: " + albero.addNodo(1, 3, 1));
+		System.out.println("Numero di nodi: " + albero.getNumNodi());
+		System.out.print("Visita Anticipata: ");
+		albero.visitaAnticipata();
+		System.out.println("");
+		System.out.print("Visita Posticipata: ");
+		albero.visitaPosticipata();
+		System.out.println("");
+		System.out.print("Visita Simmetrica: ");
+		albero.visitaSimmetrica();
 	}
 }

@@ -59,7 +59,7 @@ public class Albero_m_ario {
 			for (Nodo_m_ario figlio: radice.getFigli()) {
 				visitaPosticipata(figlio);
 			}
-			System.out.print(radice.getChiave());
+			System.out.print(radice.getChiave() + " ");
 		}
 	}
 	
@@ -69,11 +69,11 @@ public class Albero_m_ario {
 	 */
 	private void visitaSimmetrica(Nodo_m_ario radice) {
 		if (radice != null) {
-			for (int i = 0; i <= radice.getGrado()/2; i++) {
+			for (int i = 0; i < radice.getGrado()/2; i++) {
 				visitaSimmetrica(radice.getFigli()[i]);
 			}
-			System.out.print(radice.getChiave());
-			for (int i = (radice.getGrado()/2)+1; i < radice.getGrado(); i++) {
+			System.out.print(radice.getChiave() + " ");
+			for (int i = (radice.getGrado()/2); i < radice.getGrado(); i++) {
 				visitaSimmetrica(radice.getFigli()[i]);
 			}
 		}
@@ -148,6 +148,7 @@ public class Albero_m_ario {
 		if (padre != null) {
 			Nodo_m_ario	newFiglio = new Nodo_m_ario(chiaveFiglio, grado);
 			padre.addFiglio(newFiglio, posizione);
+			numNodi += 1;
 			result = true;
 		}
 		return result;

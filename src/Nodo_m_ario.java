@@ -18,6 +18,9 @@ public class Nodo_m_ario {
 	 */
 	private int grado;
 	
+	/**
+	 * Padre del nodo
+	 */
 	private Nodo_m_ario padre;
 	
 	/**
@@ -28,8 +31,9 @@ public class Nodo_m_ario {
 	// Constructors
 	
 	/**
-	 * Crea un nodo di chiave val e di grado grado
+	 * Crea un nodo figlio di padre di chiave val e di grado grado.
 	 * 
+	 * @param padre Nodo padre
 	 * @param val Valore da attribuire alla chiave
 	 * @param m Grado del nodo 
 	 */

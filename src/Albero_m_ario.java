@@ -37,6 +37,41 @@ public class Albero_m_ario {
 	// Methods
 	
 	/**
+	 * Metodo per effettuare una visita anticipata del nodo
+	 * 
+	 * @param padre
+	 */
+	private void visitaAnticipata(Nodo_m_ario padre) {
+		if (padre != null) {
+			System.out.print(padre.getChiave() + " ");
+			for (Nodo_m_ario figlio: padre.getFigli()) {
+				visitaAnticipata(figlio);
+			}
+		}
+	}
+	
+	/**
+	 * 
+	 * @param padre
+	 */
+	private void visitaPosticipata(Nodo_m_ario padre) {
+		if (padre != null) {
+			for (Nodo_m_ario figlio: padre.getFigli()) {
+				visitaPosticipata(figlio);
+			}
+			System.out.print(padre.getChiave());
+		}
+	}
+	
+	/**
+	 * 
+	 * @param padre
+	 */
+	private void visitaSimmetrica(Nodo_m_ario padre) {
+		// TODO ...
+	}
+	
+	/**
 	 * Metodo per inserire la radice nel albero
 	 * 
 	 * @param chiave Valore da attribuire alla radice
@@ -63,14 +98,10 @@ public class Albero_m_ario {
 	 */
 	public void insNuovaRadice(int chiave, int posizione) {
 		// TODO ...
-		Nodo_m_ario oldRadice = radice;
-		radice = new Nodo_m_ario(chiave, grado);
-		radice.addFiglio(oldRadice, posizione);
-		numNodi += 1;
 	}
 		
 	/**
-	 * Restituisci il numero dei nodi totali presente nell'albero
+	 * Restituisci il numero dei nodi totali presente nell'albero.
 	 * 
 	 * @return Numero totale dei nodi
 	 */
@@ -79,7 +110,7 @@ public class Albero_m_ario {
 	}
 	
 	/**
-	 * Ricerca un nodo per chiave tramite una visita anticipata
+	 * Ricerca un nodo per chiave tramite una visita anticipata.
 	 * 
 	 * @param radice Radice dell'albero su cui effettuare la ricerca
 	 * @param chiave Chiave del nodo da ricercare
@@ -94,5 +125,44 @@ public class Albero_m_ario {
 			}
 		}
 		return null;
+	}
+	
+	/**
+	 * Metedo per aggiungere ad un nodo padre un nuovo figlio.
+	 * 
+	 * @param chiavePadre Chiave del padre a cui aggiungere il figlio
+	 * @param chiaveFiglio Chiave del nuovo figlio
+	 * @param posizione Posizione del nuovo filgio
+	 */
+	public boolean addNodo(int chiavePadre, int chiaveFiglio, int posizione) {
+		boolean result = false;
+		Nodo_m_ario padre = findNodo(radice, chiavePadre);
+		if (padre != null) {
+			Nodo_m_ario	newFiglio = new Nodo_m_ario(chiaveFiglio, grado);
+			padre.addFiglio(newFiglio, posizione);
+			result = true;
+		}
+		return result;
+	}
+
+	/**
+	 * Metodo per effettuare la visita anticipata dell'albero.
+	 */
+	public void visitaAnticipata() {
+		visitaAnticipata(radice);
+	}
+	
+	/**
+	 * Metodo per effettuare la visita posticipata dell'albero.
+	 */
+	public void visitaPosticipata() {
+		visitaPosticipata(radice);
+	}
+	
+	/**
+	 * Metodo per effettuare la visita simmetrica dell'albero.
+	 */
+	public void visitaSimmetrica() {
+		visitaSimmetrica(radice);
 	}
 }

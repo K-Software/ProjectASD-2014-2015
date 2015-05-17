@@ -35,5 +35,6 @@ public class HelloWord {
 		albero.insRacide(1);
 		System.out.println("Numero di nodi: " + albero.getNumNodi());
 		System.out.println("Radice: " + albero.getRadice().getChiave());
+		
 	}
 }

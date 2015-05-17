@@ -77,4 +77,21 @@ public class Albero_m_ario {
 	public int getNumNodi() {
 		return numNodi;
 	}
+	
+	/**
+	 * Ricerca un nodo per chiave tramite una visita anticipata
+	 * 
+	 * @param chiave Chiave del nodo da ricercare
+	 * @return  Restituisce il nodo contenente la chiave
+	 */
+	public Nodo_m_ario findNodo(Nodo_m_ario radice, int chiave) {
+		if (radice.getChiave() == chiave) {
+			return radice;
+		} else {
+			for (Nodo_m_ario figlio: radice.getFigli()) {
+				return findNodo(figlio, chiave);
+			}
+		}
+		return null;
+	}
 }

@@ -29,7 +29,7 @@ public class Nodo_m_ario {
 	 * Crea un nodo di chiave val e di grado grado
 	 * 
 	 * @param val Valore da attribuire alla chiave
-	 * @param grado Grado del nodo 
+	 * @param m Grado del nodo 
 	 */
 	public Nodo_m_ario(int val, int m) {
 		chiave = val;

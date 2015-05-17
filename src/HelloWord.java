@@ -64,8 +64,12 @@ public class HelloWord {
 					pos += 1;
 				}
 			}
+			nodo.setChiave(5);
 		} else {
 			System.out.println("Nodo non presente");
 		}
+		System.out.println("");
+		System.out.print("Visita Anticipata: ");
+		albero.visitaAnticipata();
 	}
 }

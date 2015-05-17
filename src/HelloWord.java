@@ -7,11 +7,11 @@ public class HelloWord {
 		
 		// Test of Nodo_m_ario
 		System.out.println("Test Nodo_m_ario");
-		Nodo_m_ario nodo = new Nodo_m_ario(1, 7);
+		Nodo_m_ario nodo = new Nodo_m_ario(null, 1, 7);
 		System.out.println("Chiave: " + nodo.getChiave());
 		System.out.println("Num figli:" + nodo.getNunFigli());
 		
-		Nodo_m_ario figlio = new Nodo_m_ario(2, 7);
+		Nodo_m_ario figlio = new Nodo_m_ario(null, 2, 7);
 		nodo.addFiglio(figlio, 5);
 		
 		System.out.println("Num figli:" + nodo.getNunFigli());
@@ -49,9 +49,12 @@ public class HelloWord {
 		albero.visitaSimmetrica();
 		System.out.println("");
 		System.out.println("Ricerca nodo per chiave ");
-		nodo = albero.findNodo(1);
+		nodo = albero.findNodo(3);
 		if (nodo != null) {
 			System.out.println("Chiave: " + nodo.getChiave());
+			if (nodo.getPadre() != null) {
+				System.out.println("Padre: " + nodo.getPadre().getChiave());
+			}
 			System.out.println("Figli: " + nodo.getNunFigli());
 			dash = "";
 			if (nodo.getNunFigli() > 0) {
@@ -64,7 +67,6 @@ public class HelloWord {
 					pos += 1;
 				}
 			}
-			nodo.setChiave(5);
 		} else {
 			System.out.println("Nodo non presente");
 		}

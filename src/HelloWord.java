@@ -4,41 +4,31 @@ public class HelloWord {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("Hello Word and I love Java!!!!");
-		
-		// Test of Nodo_m_ario
-		System.out.println("Test Nodo_m_ario");
-		Nodo_m_ario nodo = new Nodo_m_ario(null, 1, 7);
-		System.out.println("Chiave: " + nodo.getChiave());
-		System.out.println("Num figli:" + nodo.getNunFigli());
-		
-		Nodo_m_ario figlio = new Nodo_m_ario(null, 2, 7);
-		nodo.addFiglio(figlio, 5);
-		
-		System.out.println("Num figli:" + nodo.getNunFigli());
-		String dash = "";
-		if (nodo.getNunFigli() > 0) {
-			int pos = 0;
-			for(Nodo_m_ario temp : nodo.getFigli()) {
-				if (temp != null) {
-					System.out.print(dash + temp.getChiave() + ":" + pos);
-					dash = " - ";
-				}
-				pos += 1;
-			}
-		}
-		
+				
 		// Test of Albero_m_ario
 		System.out.println();
 		System.out.println("Test Albero_m_ario");
-		Albero_m_ario albero = new Albero_m_ario(2);
+		Albero_m_ario albero = new Albero_m_ario(3);
+		System.out.println("Creazione albero");
 		System.out.println("Numero di nodi: " + albero.getNumNodi());
+		// Radice Livello 1
 		albero.insRacide(1);
-		System.out.println("Numero di nodi: " + albero.getNumNodi());
-		System.out.println("Radice: " + albero.getRadice().getChiave());
-		System.out.println("Ins nodo: " + albero.addNodo(1, 2, 0));
-		System.out.println("Numero di nodi: " + albero.getNumNodi());
-		System.out.println("Ins nodo: " + albero.addNodo(1, 3, 1));
-		System.out.println("Numero di nodi: " + albero.getNumNodi());
+		// Livello 2
+		albero.addNodo(1, 2, 0);
+		albero.addNodo(1, 3, 1);
+		albero.addNodo(1, 4, 2);
+		// Livello 3
+		albero.addNodo(2, 5, 0);
+		albero.addNodo(2, 6, 1);
+		albero.addNodo(4, 7, 0);
+		albero.addNodo(4, 8, 2);
+		// Livello 4
+		albero.addNodo(5, 9, 1);
+		albero.addNodo(5, 10, 2);
+		albero.addNodo(7, 11, 0);
+		albero.addNodo(7, 12, 1);
+		
+		
 		System.out.print("Visita Anticipata: ");
 		albero.visitaAnticipata();
 		System.out.println("");
@@ -48,15 +38,18 @@ public class HelloWord {
 		System.out.print("Visita Simmetrica: ");
 		albero.visitaSimmetrica();
 		System.out.println("");
+		System.out.print("Visita per Livelli: ");
+		albero.visitaPerLivelli();;
+		System.out.println("");
 		System.out.println("Ricerca nodo per chiave ");
-		nodo = albero.findNodo(3);
+		Nodo_m_ario nodo = albero.findNodo(3);
 		if (nodo != null) {
 			System.out.println("Chiave: " + nodo.getChiave());
 			if (nodo.getPadre() != null) {
 				System.out.println("Padre: " + nodo.getPadre().getChiave());
 			}
 			System.out.println("Figli: " + nodo.getNunFigli());
-			dash = "";
+			String dash = "";
 			if (nodo.getNunFigli() > 0) {
 				int pos = 0;
 				for(Nodo_m_ario temp : nodo.getFigli()) {

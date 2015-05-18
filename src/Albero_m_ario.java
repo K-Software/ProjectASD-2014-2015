@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 /**
  * Albero di chiavi intere e di arietá m
  * 
@@ -194,5 +196,22 @@ public class Albero_m_ario {
 	 */
 	public void visitaSimmetrica() {
 		visitaSimmetrica(radice);
+	}
+	
+	/**
+	 * Metodo per effettuare la visita per livello dell'albero.
+	 */
+	public void visitaPerLivelli() {
+		LinkedList<Nodo_m_ario> queue = new LinkedList<Nodo_m_ario>();
+		queue.add(radice);
+		while(!queue.isEmpty()) {
+			Nodo_m_ario tempNodo = queue.remove();
+			System.out.print(tempNodo.getChiave() + " ");
+			for (Nodo_m_ario figlio: tempNodo.getFigli()) {
+				if (figlio != null) {
+					queue.add(figlio);
+				}
+			}
+		}
 	}
 }

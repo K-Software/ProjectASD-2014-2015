@@ -202,16 +202,87 @@ public class Albero_m_ario {
 	 * Metodo per effettuare la visita per livello dell'albero.
 	 */
 	public void visitaPerLivelli() {
-		LinkedList<Nodo_m_ario> queue = new LinkedList<Nodo_m_ario>();
-		queue.add(radice);
+		Coda queue = new Coda();
+		queue.enqueue(radice);
 		while(!queue.isEmpty()) {
-			Nodo_m_ario tempNodo = queue.remove();
+			Nodo_m_ario tempNodo = queue.dequeue();
 			System.out.print(tempNodo.getChiave() + " ");
 			for (Nodo_m_ario figlio: tempNodo.getFigli()) {
 				if (figlio != null) {
-					queue.add(figlio);
+					queue.enqueue(figlio);
 				}
 			}
+		}
+	}
+	
+	/**
+	 * 
+	 * @author Simone Cappabianca - Mat: 5423306
+	 *
+	 */
+	private class Coda {
+		
+		// Fields
+		
+		/**
+		 * Lista
+		 */
+		LinkedList<Nodo_m_ario> list;
+		
+		// Constructors
+		
+		/**
+		 * Costruttore della coda.
+		 */
+		public Coda() {
+			list = new LinkedList<Nodo_m_ario>();
+		}
+		
+		// Methods
+		
+		/**
+		 * Metodo per determinare se la coda é vuota.
+		 * 
+		 * @return Ritorna true se la coda é vuota, false altrimenti
+		 */
+		public boolean isEmpty() {
+			return list.isEmpty();
+		}
+		
+		/**
+		 * Metodo per aggiungere un elemento in fondo alla coda.
+		 * 
+		 * @param element Elemento da aggiungere
+		 */
+		public void put(Nodo_m_ario element) {
+			list.add(element);
+		}
+		
+		/**
+		 * Metodo per aggiungere un elemento in fondo alla coda.
+		 * 
+		 * @param element Elemento da aggiungere
+		 */
+		public void enqueue(Nodo_m_ario element) {
+			list.add(element);
+		}
+		
+		/**
+		 * Metodo per estrarre il primo elemento della coda.
+		 * 
+		 * @return Restituisce l'elemento estratto
+		 */
+		public Nodo_m_ario get() {
+			return list.remove();
+		}
+		
+		/**
+		 * Metodo per estrarre il primo elemento della coda.
+		 * 
+		 * @return Restituisce l'elemento estratto
+		 */
+		public Nodo_m_ario dequeue() {
+			return list.remove();
 		}
 	}
 }

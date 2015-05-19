@@ -155,7 +155,11 @@ public class Albero_m_ario {
 	 * @param posizione Posizione da attribuire alla vecchia chiave
 	 */
 	public void insNuovaRadice(int chiave, int posizione) {
-		// TODO ...
+		Nodo_m_ario figlio = radice;
+		radice = new Nodo_m_ario(null, chiave, grado);
+		figlio.setPadre(radice);
+		radice.addFiglio(figlio, posizione);
+		numNodi += 1;
 	}
 		
 	/**

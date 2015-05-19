@@ -84,6 +84,27 @@ public class Albero_m_ario {
 	}
 	
 	/**
+	 * Metodo per calcolare l'altezza dell'albero di radice il parametro radice.
+	 * 
+	 * @param radice Radice dell'albero di cui deve essere calcolata l'altezza
+	 * @return Restituisce l'altezza dell'albero.
+	 */
+	private int getAltezza(Nodo_m_ario radice) {
+		if (radice == null) {
+			return 0;
+		} else {
+			int max = 0;
+			for (Nodo_m_ario figlio: radice.getFigli()) {
+				int numLiv = getAltezza(figlio);
+				if ( numLiv > max) {
+					max = numLiv; 
+				}
+			}
+			return max + 1;
+		}
+	}
+	
+	/**
 	 * Ricerca un nodo per chiave tramite una visita anticipata.
 	 * 
 	 * @param radice Radice dell'albero su cui effettuare la ricerca
@@ -138,12 +159,21 @@ public class Albero_m_ario {
 	}
 		
 	/**
-	 * Restituisci il numero dei nodi totali presente nell'albero.
+	 * Metodo per restituire il numero dei nodi totali presente nell'albero.
 	 * 
-	 * @return Numero totale dei nodi
+	 * @return Restituisce numero dei nodi
 	 */
 	public int getNumNodi() {
 		return numNodi;
+	}
+	
+	/**
+	 * Metodo per calcolare l'altezza dell'albero.
+	 * 
+	 *  @return Restituisce l'altezza dell'albero
+	 */
+	public int getAltezza() {
+		return getAltezza(radice);
 	}
 	
 	/**
@@ -216,6 +246,7 @@ public class Albero_m_ario {
 	}
 	
 	/**
+	 * Coda di Nodo_m_ario.
 	 * 
 	 * @author Simone Cappabianca - Mat: 5423306
 	 *

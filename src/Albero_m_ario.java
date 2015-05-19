@@ -84,10 +84,10 @@ public class Albero_m_ario {
 	}
 	
 	/**
-	 * TODO ... 
+	 * Metodo per calcolare l'altezza dell'albero di radice il parametro radice.
 	 * 
-	 * @param radice
-	 * @return
+	 * @param radice Radice dell'albero di cui deve essere calcolata l'altezza
+	 * @return Restituisce l'altezza dell'albero.
 	 */
 	private int getAltezza(Nodo_m_ario radice) {
 		if (radice == null) {
@@ -168,9 +168,9 @@ public class Albero_m_ario {
 	}
 	
 	/**
-	 * TODO
+	 * Metodo per calcolare l'altezza dell'albero.
 	 * 
-	 *  @return Restituisce numero dei livelli
+	 *  @return Restituisce l'altezza dell'albero
 	 */
 	public int getAltezza() {
 		return getAltezza(radice);

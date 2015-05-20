@@ -39,6 +39,21 @@ public class Albero_m_ario {
 	// Methods
 	
 	/**
+	 * Metodo per controllare che la posizione rispetti il grado dell'albero.
+	 * 
+	 * @param posizione Posizione da controllare
+	 * @return Restituisce true se la posizione rispetta il grado dell'albero,
+	 * false altrimenti.
+	 */
+	private boolean checkGrado(int posizione) {
+		if (posizione >= 0 && posizione < grado) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/**
 	 * Metodo per effettuare la visita anticipata dell'albero.  
 	 * 
 	 * @param radice Radice dell'albero
@@ -149,7 +164,8 @@ public class Albero_m_ario {
 	}
 
 	/**
-	 * TODO ...
+	 * Metodo per inserire una nuova radice all'albero trasformando albero 
+	 * precedente un sottoalbero della nuova radice.
 	 * 
 	 * @param chiave Chiave della nuova radice
 	 * @param posizione Posizione da attribuire alla vecchia chiave
@@ -201,6 +217,34 @@ public class Albero_m_ario {
 		return result;
 	}
 
+	/**
+	 * Metodo per trasformare un albero sottoalbero di un determinato nodo. 
+	 * 
+	 * @param chiave Chiave del nodo in cui deve essere inserito il sottoalbro
+	 * @param posizione Posizione in cui deve essere il sottoalbero
+	 * @param subAlbero Albero che deve diventare sotto albero
+	 * @return Restituisce true se l'inserimento é andato a buon fine, false 
+	 * altrimenti
+	 */
+	public boolean addSubAlbero(int chiave, int posizione, Albero_m_ario subAlbero) {
+		Nodo_m_ario nodo = findNodo(chiave);
+		if (nodo != null) {
+			if (checkGrado(posizione)) {
+				if (nodo.getFigli()[posizione] == null) {
+					nodo.getFigli()[posizione] = subAlbero.getRadice();
+					numNodi += subAlbero.getNumNodi();
+					return true; 
+				} else {
+					return false;
+				}
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+	
 	/**
 	 * Metodo per recuperare il primo nodo con la chiave indicata come parametro.
 	 * 

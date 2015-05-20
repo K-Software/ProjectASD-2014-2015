@@ -93,6 +93,15 @@ public class Nodo_m_ario {
 	}
 	
 	/**
+	 * Metodo per assegnare il padre del nodo
+	 * 
+	 * @param padre Padre del nodo
+	 */
+	public void setPadre(Nodo_m_ario padre) {
+		this.padre = padre;
+	}
+	
+	/**
 	 * Metodo per recuperare i figli del nodo
 	 * 
 	 * @return Restituisce i figli del nodo

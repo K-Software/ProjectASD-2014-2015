@@ -30,7 +30,6 @@ public class HelloWord {
 		// Livello 5
 		albero.addNodo(12, 13, 1);
 		
-		
 		System.out.print("Visita Anticipata: ");
 		albero.visitaAnticipata();
 		System.out.println("");
@@ -47,30 +46,55 @@ public class HelloWord {
 		System.out.println("");
 		System.out.print("Numero di livelli: " + albero.getAltezza());
 		System.out.println("");
-		System.out.println("Ricerca nodo per chiave ");
-		Nodo_m_ario nodo = albero.findNodo(3);
-		if (nodo != null) {
-			System.out.println("Chiave: " + nodo.getChiave());
-			if (nodo.getPadre() != null) {
-				System.out.println("Padre: " + nodo.getPadre().getChiave());
-			}
-			System.out.println("Figli: " + nodo.getNunFigli());
-			String dash = "";
-			if (nodo.getNunFigli() > 0) {
-				int pos = 0;
-				for(Nodo_m_ario temp : nodo.getFigli()) {
-					if (temp != null) {
-						System.out.print(dash + pos + ":" + temp.getChiave());
-						dash = " - ";
-					}
-					pos += 1;
-				}
-			}
-		} else {
-			System.out.println("Nodo non presente");
-		}
-		System.out.println("");
+
+		// Inserisco una nuova radice
+		albero.insNuovaRadice(0, 2);
 		System.out.print("Visita Anticipata: ");
 		albero.visitaAnticipata();
+		System.out.println("");
+		System.out.print("Visita Posticipata: ");
+		albero.visitaPosticipata();
+		System.out.println("");
+		System.out.print("Visita Simmetrica: ");
+		albero.visitaSimmetrica();
+		System.out.println("");
+		System.out.print("Visita per Livelli: ");
+		albero.visitaPerLivelli();
+		System.out.println("");
+		System.out.print("Numero di nodi:" + albero.getNumNodi());
+		System.out.println("");
+		System.out.print("Numero di livelli: " + albero.getAltezza());
+		System.out.println("");
+		
+		// Aggiungo il sottoalbero
+		// Sottoalbero
+		Albero_m_ario sottoAlbero = new Albero_m_ario(3);
+		// Radice Livello 0
+		sottoAlbero.insRacide(14);
+		// Livello 1
+		sottoAlbero.addNodo(14, 15, 0);
+		sottoAlbero.addNodo(14, 16, 1);
+		sottoAlbero.addNodo(14, 17, 2);
+		// Livello 2
+		sottoAlbero.addNodo(16, 18, 2);
+		// Livello 3
+		sottoAlbero.addNodo(18, 19, 0);
+		albero.addSubAlbero(12, 2, sottoAlbero);
+		System.out.print("Visita Anticipata: ");
+		albero.visitaAnticipata();
+		System.out.println("");
+		System.out.print("Visita Posticipata: ");
+		albero.visitaPosticipata();
+		System.out.println("");
+		System.out.print("Visita Simmetrica: ");
+		albero.visitaSimmetrica();
+		System.out.println("");
+		System.out.print("Visita per Livelli: ");
+		albero.visitaPerLivelli();
+		System.out.println("");
+		System.out.print("Numero di nodi:" + albero.getNumNodi());
+		System.out.println("");
+		System.out.print("Numero di livelli: " + albero.getAltezza());
+		System.out.println("");
 	}
 }

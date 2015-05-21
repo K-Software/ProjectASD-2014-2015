@@ -263,6 +263,23 @@ public class Albero_m_ario {
 	}
 	
 	/**
+	 * TODO
+	 */
+	public void visitaAnticipataIterativa() {
+		Pila stack = new Pila();
+		stack.push(radice);
+		while (!stack.isEmpty()) {
+			Nodo_m_ario nodo = stack.pop();
+			System.out.print(nodo.getChiave() + " ");
+			for (int i = grado-1; i >= 0; i--) {
+				if (nodo.getFigli()[i] != null) {
+					stack.push(nodo.getFigli()[i]);
+				}
+			}
+		}
+	}
+	
+	/**
 	 * Metodo per effettuare la visita posticipata dell'albero.
 	 */
 	public void visitaPosticipata() {
@@ -270,10 +287,24 @@ public class Albero_m_ario {
 	}
 	
 	/**
+	 * TODO
+	 */
+	public void visitaPosticipataIterativa() {
+		// TODO
+	}
+	
+	/**
 	 * Metodo per effettuare la visita simmetrica dell'albero.
 	 */
 	public void visitaSimmetrica() {
 		visitaSimmetrica(radice);
+	}
+	
+	/**
+	 * TODO
+	 */
+	public void visitaSimmettricaIterativa() {
+		// TODO
 	}
 	
 	/**
@@ -362,6 +393,55 @@ public class Albero_m_ario {
 		 */
 		public Nodo_m_ario dequeue() {
 			return list.remove();
+		}
+	}
+	
+	/**
+	 * TODO ...
+	 * 
+	 * @author Simone Cappabianca - Mat: 5423306
+	 *
+	 */
+	private class Pila {
+		
+		// Fields
+		
+		/**
+		 * TODO ...
+		 */
+		LinkedList<Nodo_m_ario> list;
+		
+		// Constructors
+		
+		/**
+		 * TODO ...
+		 */
+		public Pila() {
+			list = new LinkedList<Nodo_m_ario>();
+		}
+		
+		// Methods
+		
+		public boolean isEmpty() {
+			return list.isEmpty();
+		}
+		
+		/**
+		 * TODO ...
+		 * 
+		 * @return
+		 */
+		public Nodo_m_ario pop() {
+			return list.pop();
+		}
+		
+		/**
+		 * TODO ...
+		 * 
+		 * @return
+		 */
+		public void push(Nodo_m_ario element) {
+			list.push(element);
 		}
 	}
 }

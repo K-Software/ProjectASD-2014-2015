@@ -33,6 +33,9 @@ public class HelloWord {
 		System.out.print("Visita Anticipata: ");
 		albero.visitaAnticipata();
 		System.out.println("");
+		System.out.print("Visita Anticipata Iterativa: ");
+		albero.visitaAnticipataIterativa();
+		System.out.println("");
 		System.out.print("Visita Posticipata: ");
 		albero.visitaPosticipata();
 		System.out.println("");

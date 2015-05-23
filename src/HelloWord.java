@@ -45,6 +45,9 @@ public class HelloWord {
 		System.out.print("Visita Simmetrica: ");
 		albero.visitaSimmetrica();
 		System.out.println("");
+		System.out.print("Visita Simmetrica Iterativa: ");
+		albero.visitaSimmetricaIterativa();
+		System.out.println("");
 		System.out.print("Visita per Livelli: ");
 		albero.visitaPerLivelli();
 		System.out.println("");

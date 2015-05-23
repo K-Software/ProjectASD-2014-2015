@@ -1,5 +1,9 @@
 import java.util.LinkedList;
 
+import exception.NodoNotExistException;
+import exception.PositionNoEmptyException;
+import exception.PositionOutOfBoundException;
+
 /**
  * Albero di chiavi intere e di arietá m
  * 
@@ -45,6 +49,7 @@ public class Albero_m_ario {
 	 * @return Restituisce true se la posizione rispetta il grado dell'albero,
 	 * false altrimenti.
 	 */
+	/*
 	private boolean checkGrado(int posizione) {
 		if (posizione >= 0 && posizione < grado) {
 			return true;
@@ -52,6 +57,7 @@ public class Albero_m_ario {
 			return false;
 		}
 	}
+	*/
 	
 	/**
 	 * Metodo ricorsivo per effettuare la visita anticipata dell'albero.  
@@ -170,7 +176,7 @@ public class Albero_m_ario {
 	 * @param chiave Chiave della nuova radice
 	 * @param posizione Posizione da attribuire alla vecchia chiave
 	 */
-	public void insNuovaRadice(int chiave, int posizione) {
+	public void insNuovaRadice(int chiave, int posizione) throws PositionOutOfBoundException, PositionNoEmptyException{
 		Nodo_m_ario figlio = radice;
 		radice = new Nodo_m_ario(null, chiave, grado);
 		figlio.setPadre(radice);
@@ -205,7 +211,7 @@ public class Albero_m_ario {
 	 * @return Restituisce true se inserimento ha avuto esito positivo, false
 	 * altrimenti
 	 */
-	public boolean addNodo(int chiavePadre, int chiaveFiglio, int posizione) {
+	public boolean addNodo(int chiavePadre, int chiaveFiglio, int posizione) throws PositionOutOfBoundException, PositionNoEmptyException {
 		boolean result = false;
 		Nodo_m_ario padre = findNodo(radice, chiavePadre);
 		if (padre != null) {
@@ -226,23 +232,15 @@ public class Albero_m_ario {
 	 * @return Restituisce true se l'inserimento é andato a buon fine, false 
 	 * altrimenti
 	 */
-	public boolean addSubAlbero(int chiave, int posizione, Albero_m_ario subAlbero) {
+	public Nodo_m_ario addSubAlbero(int chiave, int posizione, Albero_m_ario subAlbero) 
+			throws NodoNotExistException, PositionNoEmptyException, PositionOutOfBoundException {
 		Nodo_m_ario nodo = findNodo(chiave);
-		if (nodo != null) {
-			if (checkGrado(posizione)) {
-				if (nodo.getFigli()[posizione] == null) {
-					nodo.getFigli()[posizione] = subAlbero.getRadice();
-					numNodi += subAlbero.getNumNodi();
-					return true; 
-				} else {
-					return false;
-				}
-			} else {
-				return false;
-			}
-		} else {
-			return false;
+		if (nodo == null) {
+			throw new NodoNotExistException();
 		}
+		nodo.addFiglio(subAlbero.getRadice(), posizione);
+		numNodi += subAlbero.getNumNodi();
+		return nodo;
 	}
 	
 	/**

@@ -1,3 +1,6 @@
+import exception.PositionNoEmptyException;
+import exception.PositionOutOfBoundException;
+
 /**
  * Questa classe rappresenta un nodo di chiave intera di grado m.
  * 
@@ -19,17 +22,17 @@ public class Nodo_m_ario {
 	private int grado;
 	
 	/**
-	 * Padre del nodo
+	 * Padre del nodo.
 	 */
 	private Nodo_m_ario padre;
 	
 	/**
-	 * Figli del nodo
+	 * Figli del nodo.
 	 */
 	private Nodo_m_ario[] figli;
 	
 	/**
-	 * 
+	 * Identifica se é una radice.
 	 */
 	private boolean radice;
 	
@@ -80,9 +83,10 @@ public class Nodo_m_ario {
 	}
 	
 	/**
-	 * TODO ...
+	 * Metodo per controllare se un nodo é una radice di un albero e quindi ha 
+	 * dei figli.
 	 * 
-	 * @return
+	 * @return Restituisce true se il nodo ha dei figli
 	 */
 	public boolean isRadice() {
 		return radice;
@@ -94,9 +98,18 @@ public class Nodo_m_ario {
 	 * @param figlio Nodo da aggiungere come figlio
 	 * @param posizione Posizione in cui aggiungere il figlio
 	 */
-	public void addFiglio(Nodo_m_ario figlio, int posizione) {
-		figli[posizione] = figlio;
-		radice = true;
+	public void addFiglio(Nodo_m_ario figlio, int posizione) 
+			throws PositionNoEmptyException, PositionOutOfBoundException {
+		if (posizione >= 0 && posizione < grado) {
+			if (figli[posizione] == null) {
+				figli[posizione] = figlio;
+				radice = true;
+			} else {
+				throw new PositionNoEmptyException();
+			}
+		} else {
+			throw new PositionOutOfBoundException();
+		}
 	}
 	
 	/**

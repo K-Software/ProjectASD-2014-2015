@@ -44,23 +44,6 @@ public class Albero_m_ario {
 	// Methods
 	
 	/**
-	 * Metodo per controllare che la posizione rispetti il grado dell'albero.
-	 * 
-	 * @param posizione Posizione da controllare
-	 * @return Restituisce true se la posizione rispetta il grado dell'albero,
-	 * false altrimenti.
-	 */
-	/*
-	private boolean checkGrado(int posizione) {
-		if (posizione >= 0 && posizione < grado) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	*/
-	
-	/**
 	 * Metodo ricorsivo per effettuare la visita anticipata dell'albero.  
 	 * 
 	 * @param radice Radice dell'albero

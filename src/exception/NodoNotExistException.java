@@ -1,15 +1,13 @@
 package exception;
 
 /**
+ * <h1>NodoNotExistException.java</h1>
  * 
  * @author Simone Cappabianca - Mat: 5423306
  *
  */
 public class NodoNotExistException extends Exception {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5064131987791631453L;
 
 	public String getMessage() {

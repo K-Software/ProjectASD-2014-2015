@@ -5,6 +5,7 @@ import exception.PositionNoEmptyException;
 import exception.PositionOutOfBoundException;
 
 /**
+ * <h1>Albero_m_ario.java</h1>
  * Albero di chiavi intere e di arietá m
  * 
  * @author Simone Cappabianca - Mat: 5423306
@@ -178,7 +179,8 @@ public class Albero_m_ario {
 	 * @throws PositionOutOfBoundException Posizione non corretta
 	 * @throws PositionNoEmptyException Posizione occupata
 	 */
-	public void insNuovaRadice(int chiave, int posizione) throws PositionOutOfBoundException, PositionNoEmptyException{
+	public void insNuovaRadice(int chiave, int posizione) 
+			throws PositionOutOfBoundException, PositionNoEmptyException{
 		Nodo_m_ario figlio = radice;
 		radice = new Nodo_m_ario(null, chiave, grado);
 		figlio.setPadre(radice);

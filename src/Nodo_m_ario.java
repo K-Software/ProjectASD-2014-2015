@@ -28,6 +28,11 @@ public class Nodo_m_ario {
 	 */
 	private Nodo_m_ario[] figli;
 	
+	/**
+	 * 
+	 */
+	private boolean radice;
+	
 	// Constructors
 	
 	/**
@@ -42,6 +47,7 @@ public class Nodo_m_ario {
 		grado = m;
 		this.padre = padre;
 		figli = new Nodo_m_ario[grado];
+		radice = false;
 	}
 	
 	// Methods
@@ -74,6 +80,15 @@ public class Nodo_m_ario {
 	}
 	
 	/**
+	 * TODO ...
+	 * 
+	 * @return
+	 */
+	public boolean isRadice() {
+		return radice;
+	}
+	
+	/**
 	 * Metodo per aggiungere un figlio al nodo in una determinata posizione
 	 * 
 	 * @param figlio Nodo da aggiungere come figlio
@@ -81,6 +96,7 @@ public class Nodo_m_ario {
 	 */
 	public void addFiglio(Nodo_m_ario figlio, int posizione) {
 		figli[posizione] = figlio;
+		radice = true;
 	}
 	
 	/**

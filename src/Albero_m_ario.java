@@ -287,10 +287,24 @@ public class Albero_m_ario {
 	}
 	
 	/**
-	 * TODO
+	 * TODO ...
 	 */
 	public void visitaPosticipataIterativa() {
-		// TODO
+		Pila stack = new Pila();
+		stack.push(radice);
+		while (!stack.isEmpty()) {
+			Nodo_m_ario nodo = stack.pop();
+			if (nodo.isRadice()) {
+				stack.push(new Nodo_m_ario(null, nodo.getChiave(), grado));
+				for (int i = grado-1; i >= 0; i--) {
+					if (nodo.getFigli()[i] != null) {
+						stack.push(nodo.getFigli()[i]);
+					}
+				}
+			} else {
+				System.out.print(nodo.getChiave() + " ");
+			}
+		}
 	}
 	
 	/**

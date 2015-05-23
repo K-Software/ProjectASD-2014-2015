@@ -1,3 +1,4 @@
+import exception.NodoNotExistException;
 import exception.PositionNoEmptyException;
 import exception.PositionOutOfBoundException;
 
@@ -97,6 +98,8 @@ public class Nodo_m_ario {
 	 * 
 	 * @param figlio Nodo da aggiungere come figlio
 	 * @param posizione Posizione in cui aggiungere il figlio
+	 * @throws PositionOutOfBoundException Posizione non corretta
+	 * @throws PositionNoEmptyException Posizione occupata
 	 */
 	public void addFiglio(Nodo_m_ario figlio, int posizione) 
 			throws PositionNoEmptyException, PositionOutOfBoundException {

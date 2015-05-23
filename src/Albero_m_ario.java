@@ -175,6 +175,8 @@ public class Albero_m_ario {
 	 * 
 	 * @param chiave Chiave della nuova radice
 	 * @param posizione Posizione da attribuire alla vecchia chiave
+	 * @throws PositionOutOfBoundException Posizione non corretta
+	 * @throws PositionNoEmptyException Posizione occupata
 	 */
 	public void insNuovaRadice(int chiave, int posizione) throws PositionOutOfBoundException, PositionNoEmptyException{
 		Nodo_m_ario figlio = radice;
@@ -210,6 +212,8 @@ public class Albero_m_ario {
 	 * @param posizione Posizione del nuovo filgio
 	 * @return Restituisce true se inserimento ha avuto esito positivo, false
 	 * altrimenti
+	 * @throws PositionOutOfBoundException Posizione non corretta
+	 * @throws PositionNoEmptyException Posizione occupata
 	 */
 	public boolean addNodo(int chiavePadre, int chiaveFiglio, int posizione) throws PositionOutOfBoundException, PositionNoEmptyException {
 		boolean result = false;
@@ -231,6 +235,9 @@ public class Albero_m_ario {
 	 * @param subAlbero Albero che deve diventare sotto albero
 	 * @return Restituisce true se l'inserimento é andato a buon fine, false 
 	 * altrimenti
+	 * @throws NodoNotExistException Nodo non presente all'interno dell'albero
+	 * @throws PositionOutOfBoundException Posizione non corretta
+	 * @throws PositionNoEmptyException Posizione occupata
 	 */
 	public Nodo_m_ario addSubAlbero(int chiave, int posizione, Albero_m_ario subAlbero) 
 			throws NodoNotExistException, PositionNoEmptyException, PositionOutOfBoundException {

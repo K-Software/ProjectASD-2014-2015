@@ -54,7 +54,7 @@ public class Albero_m_ario {
 	}
 	
 	/**
-	 * Metodo per effettuare la visita anticipata dell'albero.  
+	 * Metodo ricorsivo per effettuare la visita anticipata dell'albero.  
 	 * 
 	 * @param radice Radice dell'albero
 	 */
@@ -68,7 +68,7 @@ public class Albero_m_ario {
 	}
 	
 	/**
-	 * Metodo per effettuare la visita posticipata dell'albero. 
+	 * Metodo ricorsivo per effettuare la visita posticipata dell'albero. 
 	 * 
 	 * @param radice Radice dell'albero
 	 */
@@ -82,7 +82,7 @@ public class Albero_m_ario {
 	}
 	
 	/**
-	 * Metodo per effettuare la visita simmetrica dell'albero.
+	 * Metodo ricorsivo per effettuare la visita simmetrica dell'albero.
 	 * 
 	 * @param radice Radice dell'albero
 	 */
@@ -263,6 +263,23 @@ public class Albero_m_ario {
 	}
 	
 	/**
+	 * Metodo iterativo per effettuare la visita anticipata dell'albero.
+	 */
+	public void visitaAnticipataIterativa() {
+		Pila stack = new Pila();
+		stack.push(radice);
+		while (!stack.isEmpty()) {
+			Nodo_m_ario nodo = stack.pop();
+			System.out.print(nodo.getChiave() + " ");
+			for (int i = grado-1; i >= 0; i--) {
+				if (nodo.getFigli()[i] != null) {
+					stack.push(nodo.getFigli()[i]);
+				}
+			}
+		}
+	}
+	
+	/**
 	 * Metodo per effettuare la visita posticipata dell'albero.
 	 */
 	public void visitaPosticipata() {
@@ -270,10 +287,57 @@ public class Albero_m_ario {
 	}
 	
 	/**
+	 * Metodo iterativo per effettuare le visita posticipata dell'albero.
+	 */
+	public void visitaPosticipataIterativa() {
+		Pila stack = new Pila();
+		stack.push(radice);
+		while (!stack.isEmpty()) {
+			Nodo_m_ario nodo = stack.pop();
+			if (nodo.isRadice()) {
+				stack.push(new Nodo_m_ario(null, nodo.getChiave(), nodo.getGrado()));
+				for (int i = nodo.getGrado()-1; i >= 0; i--) {
+					if (nodo.getFigli()[i] != null) {
+						stack.push(nodo.getFigli()[i]);
+					}
+				}
+			} else {
+				System.out.print(nodo.getChiave() + " ");
+			}
+		}
+	}
+	
+	/**
 	 * Metodo per effettuare la visita simmetrica dell'albero.
 	 */
 	public void visitaSimmetrica() {
 		visitaSimmetrica(radice);
+	}
+	
+	/**
+	 * Metodo iterativo per effettuare la visita simmetrica dell'albero.
+	 */
+	public void visitaSimmetricaIterativa() {
+		Pila stack = new Pila();
+		stack.push(radice);
+		while (!stack.isEmpty()) {
+			Nodo_m_ario nodo = stack.pop();
+			if (nodo.isRadice()) {
+				for (int i = nodo.getGrado()-1; i >= (nodo.getGrado()/2); i--) {
+					if (nodo.getFigli()[i] != null) {
+						stack.push(nodo.getFigli()[i]);
+					}
+				}
+				stack.push(new Nodo_m_ario(null, nodo.getChiave(), nodo.getGrado()));
+				for (int i = nodo.getGrado()/2-1; i >= 0 ; i--) {
+					if (nodo.getFigli()[i] != null) {
+						stack.push(nodo.getFigli()[i]);
+					}
+				}
+			} else {
+				System.out.print(nodo.getChiave() + " ");
+			}
+		}
 	}
 	
 	/**
@@ -362,6 +426,55 @@ public class Albero_m_ario {
 		 */
 		public Nodo_m_ario dequeue() {
 			return list.remove();
+		}
+	}
+	
+	/**
+	 * TODO ...
+	 * 
+	 * @author Simone Cappabianca - Mat: 5423306
+	 *
+	 */
+	private class Pila {
+		
+		// Fields
+		
+		/**
+		 * TODO ...
+		 */
+		LinkedList<Nodo_m_ario> list;
+		
+		// Constructors
+		
+		/**
+		 * TODO ...
+		 */
+		public Pila() {
+			list = new LinkedList<Nodo_m_ario>();
+		}
+		
+		// Methods
+		
+		public boolean isEmpty() {
+			return list.isEmpty();
+		}
+		
+		/**
+		 * TODO ...
+		 * 
+		 * @return
+		 */
+		public Nodo_m_ario pop() {
+			return list.pop();
+		}
+		
+		/**
+		 * TODO ...
+		 * 
+		 * @return
+		 */
+		public void push(Nodo_m_ario element) {
+			list.push(element);
 		}
 	}
 }

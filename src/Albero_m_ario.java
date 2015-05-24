@@ -445,6 +445,11 @@ public class Albero_m_ario {
 		
 		// Methods
 		
+		/**
+		 * Metodo per controllare se la pila é vuota.
+		 * 
+		 * @return Restituisce true se la pila é vuota, false altrimenti
+		 */
 		public boolean isEmpty() {
 			return list.isEmpty();
 		}

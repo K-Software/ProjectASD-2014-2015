@@ -358,7 +358,7 @@ public class Albero_m_ario {
 		// Fields
 		
 		/**
-		 * Lista
+		 * Lista.
 		 */
 		LinkedList<Nodo_m_ario> list;
 		
@@ -420,7 +420,7 @@ public class Albero_m_ario {
 	}
 	
 	/**
-	 * TODO ...
+	 * Pila di Nodo_m_ario.
 	 * 
 	 * @author Simone Cappabianca - Mat: 5423306
 	 *
@@ -430,14 +430,14 @@ public class Albero_m_ario {
 		// Fields
 		
 		/**
-		 * TODO ...
+		 * Lista
 		 */
 		LinkedList<Nodo_m_ario> list;
 		
 		// Constructors
 		
 		/**
-		 * TODO ...
+		 * Costruttore della pila.
 		 */
 		public Pila() {
 			list = new LinkedList<Nodo_m_ario>();
@@ -450,18 +450,18 @@ public class Albero_m_ario {
 		}
 		
 		/**
-		 * TODO ...
+		 * Metodo per recuperare l'elemento in testa alla pila.
 		 * 
-		 * @return
+		 * @return Restituisce l'elemento estratto.
 		 */
 		public Nodo_m_ario pop() {
 			return list.pop();
 		}
 		
 		/**
-		 * TODO ...
+		 * Metodo per insirire un elemento in testa alla pila.
 		 * 
-		 * @return
+		 * @param element Elemento da inserire
 		 */
 		public void push(Nodo_m_ario element) {
 			list.push(element);

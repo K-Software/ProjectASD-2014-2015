@@ -60,9 +60,13 @@ public class HelloWord {
 			System.out.println("");
 			System.out.print("Numero di livelli: " + albero.getAltezza());
 			System.out.println("");
+			System.out.print("Padre del nodo 4 é in nodo " + albero.findNodo(4).getPadre().getChiave());
+			System.out.println("");
 	
 			// Inserisco una nuova radice
+			System.out.print("Inserisco la nuova radice 0");
 			albero.insNuovaRadice(0, 2);
+			System.out.println("");
 			System.out.print("Visita Anticipata: ");
 			albero.visitaAnticipata();
 			System.out.println("");
@@ -79,8 +83,11 @@ public class HelloWord {
 			System.out.println("");
 			System.out.print("Numero di livelli: " + albero.getAltezza());
 			System.out.println("");
+			System.out.print("Padre del nodo 1 é in nodo " + albero.findNodo(1).getPadre().getChiave());
+			System.out.println("");
 			
 			// Aggiungo il sottoalbero
+			System.out.println("Aggiungo il un sottoalbero");
 			// Sottoalbero
 			Albero_m_ario sottoAlbero = new Albero_m_ario(3);
 			// Radice Livello 0
@@ -110,6 +117,7 @@ public class HelloWord {
 			System.out.println("");
 			System.out.print("Numero di livelli: " + albero.getAltezza());
 			System.out.println("");
+			
 		} catch (NodoNotExistException nne) {
 			System.out.println(nne.getMessage());
 		} catch (PositionNoEmptyException pne) {

@@ -5,7 +5,6 @@ import exception.PositionNoEmptyException;
 import exception.PositionOutOfBoundException;
 
 /**
- * <h1>Albero_m_ario.java</h1>
  * Albero di chiavi intere e di arietá m
  * 
  * @author Simone Cappabianca - Mat: 5423306

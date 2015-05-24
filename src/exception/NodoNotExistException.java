@@ -1,7 +1,8 @@
 package exception;
 
 /**
- * <h1>NodoNotExistException.java</h1>
+ * Eccezione da lanciare quando non esiste nessun nodo che contiene una 
+ * determinata chiave.
  * 
  * @author Simone Cappabianca - Mat: 5423306
  *

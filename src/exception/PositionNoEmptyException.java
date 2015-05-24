@@ -1,7 +1,8 @@
 package exception;
 
 /**
- * <h1>PositionNoEmptyException.java</h1>
+ * Eccezione da lanciare per indicare che la popsizione in cui si sta provando
+ * ad inserire il nuovo figlio non é vuota.
  * 
  * @author Simone Cappabianca - Mat: 5423306
  *
